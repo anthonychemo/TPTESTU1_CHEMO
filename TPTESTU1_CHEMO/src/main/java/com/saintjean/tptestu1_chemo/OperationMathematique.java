@@ -1,5 +1,8 @@
 package com.saintjean.tptestu1_chemo;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class OperationMathematique {
 	
 	public boolean estPositif(int nombre) {
@@ -12,4 +15,10 @@ public class OperationMathematique {
         	res *= i;
         return res;
     }
+	
+	public Integer[] trier(Integer[] liste) {
+	    Arrays.sort(liste, Collections.reverseOrder());
+	    return liste;
+	}
+	
 }
