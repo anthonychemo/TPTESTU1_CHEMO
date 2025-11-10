@@ -9,7 +9,10 @@ public class OperationMathematique {
         return nombre >= 0;
     }
 
-	public static long factoriel(int nombre) {
+
+	public static long factoriel(int nombre) throws IllegalParamISIException {
+		if (nombre < 0)
+	        throw new IllegalParamISIException("Le factoriel d’un nombre négatif est impossible !");
         long res = 1;
         for (int i = 1; i <= nombre; i++) 
         	res *= i;
