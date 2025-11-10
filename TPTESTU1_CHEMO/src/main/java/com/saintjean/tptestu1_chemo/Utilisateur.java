@@ -1,5 +1,7 @@
 package com.saintjean.tptestu1_chemo;
 
+import java.util.ArrayList;
+
 public class Utilisateur {
 	
 	    private int id;
@@ -51,6 +53,8 @@ public class Utilisateur {
 		public void setSoldePersonnel(double soldePersonnel) {
 			this.soldePersonnel = soldePersonnel;
 		}
+		
+		public static ArrayList<Utilisateur> users = new ArrayList<>();
 	    
 	    
 
