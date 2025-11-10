@@ -31,6 +31,20 @@ class TestOperationMathematique {
 	    Integer[] expected = {5, 3, 2, 1};
 	    assertArrayEquals(expected, OperationMathematique.trier(data));
 	}
+	@Test
+	void testMaxNumba() {
+		System.out.println("Je teste la methode maxNumba.");
+	    double[] valeurs = {1.5, 9.8, 4.2, 7.7};
+	    assertEquals(9.8, OperationMathematique.maxNumba(valeurs));
+	}
+
+	@Test
+	void testMaxNumbaTableauVide() {
+		System.out.println("Je teste la methode maxNumba en cas de tableau vide");
+	    double[] valeurs = {};
+	    assertThrows(IllegalArgumentException.class, () -> OperationMathematique.maxNumba(valeurs));
+	}
+
 
 
 }
