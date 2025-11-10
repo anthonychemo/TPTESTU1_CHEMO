@@ -23,4 +23,18 @@ public class OperationMathematique {
 	    return liste;
 	}
 	
+	public double maxNumba(double[] valeurs) {
+	    if (valeurs == null || valeurs.length == 0) {
+	        throw new IllegalArgumentException("Le tableau ne doit pas être vide ou null !");
+	    }
+	    double max = valeurs[0];
+	    for (double v : valeurs) {
+	        if (v > max) {
+	            max = v;
+	        }
+	    }
+	    return max;
+	}
+
+	
 }
