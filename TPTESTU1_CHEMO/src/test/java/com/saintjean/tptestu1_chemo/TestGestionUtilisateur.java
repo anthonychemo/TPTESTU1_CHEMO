@@ -51,5 +51,41 @@ class TestGestionUtilisateur {
 	void testAfficher() {
 		System.out.println("Test de la methode afficher étudiant");
 	}
+	
+	@Test
+	void testAnalyseSoldeGeneralPositif() throws Exception {
+		System.out.println("Test de la methode analyseSoldeGeneral ");
+	    Utilisateur.users.clear();
+
+	    Utilisateur.ajouter(new Utilisateur(1, "Alice", 25, "alice@mail.com", "677000001", "Douala", 30000));
+	    Utilisateur.ajouter(new Utilisateur(2, "Bob", 28, "bob@mail.com", "677000002", "Yaoundé", 20000));
+
+	    double total = Utilisateur.analyseSoldeGeneral();
+	    assertEquals(50000, total);
+	}
+
+	@Test
+	void testAnalyseSoldeGeneralNegatif() throws Exception {
+		System.out.println("Test de la methode analyseSoldeGeneral avec un solde négatif ");
+	    Utilisateur.users.clear();
+
+	    Utilisateur.ajouter(new Utilisateur(3, "Chris", 35, "chris@mail.com", "677000003", "Bafoussam", -5000));
+
+	    assertThrows(NegativeGeneralBalanceException.class, () -> Utilisateur.analyseSoldeGeneral());
+	}
+
+	@Test
+	void testUtilisateurLePlusRiche() throws Exception {
+		System.out.println("Test de la methode plusRiche");
+	    Utilisateur.users.clear();
+
+	    Utilisateur.ajouter(new Utilisateur(4, "David", 22, "david@mail.com", "677000004", "Douala", 20000));
+	    Utilisateur.ajouter(new Utilisateur(5, "Eve", 29, "eve@mail.com", "677000005", "Yaoundé", 60000));
+
+	    Utilisateur plusRiche = Utilisateur.utilisateurLePlusRiche();
+	    assertNotNull(plusRiche);
+	    assertEquals("Eve", plusRiche.getNom());
+	}
+
 
 }
