@@ -56,6 +56,26 @@ public class Utilisateur {
 		
 		public static ArrayList<Utilisateur> users = new ArrayList<>();
 	    
-	    
+		public static double analyseSoldeGeneral() throws NegativeGeneralBalanceException {
+		    double total = users.stream()
+		            .mapToDouble(Utilisateur::getSoldePersonnel)
+		            .sum();
+
+		    if (total < 0) {
+		        throw new NegativeGeneralBalanceException("Solde général négatif !");
+		    }
+
+		    return total;
+		}
+
+		public static Utilisateur utilisateurLePlusRiche() {
+		    if (users.isEmpty()) {
+		        return null; 
+		    }
+
+		    return users.stream()
+		            .max((u1, u2) -> Double.compare(u1.getSoldePersonnel(), u2.getSoldePersonnel()))
+		            .orElse(null);
+		}
 
 }
